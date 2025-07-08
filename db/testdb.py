@@ -1,5 +1,3 @@
-# tests/test_db_init.py
-
 from taskdb import TaskDatabase
 
 def test_db_creation():
