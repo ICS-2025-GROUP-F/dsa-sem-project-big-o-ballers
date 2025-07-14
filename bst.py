@@ -4,6 +4,7 @@ class TaskNode:
         self.left = None#stores the task, and left and right pointers
         self.right = None
 
+
 class BST:#handles traversal, insertion and search
     def __init__(self):#stores nodes
         self.root = None
