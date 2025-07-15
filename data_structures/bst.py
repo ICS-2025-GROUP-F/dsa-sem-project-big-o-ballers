@@ -1,22 +1,21 @@
 class TaskNode:
     def __init__(self, task):
         self.task = task
-        self.left = None#stores the task, and left and right pointers
+        self.left = None
         self.right = None
 
-
-class BST:#handles traversal, insertion and search
-    def __init__(self):#stores nodes
+class BST:
+    def __init__(self):
         self.root = None
 
     def insert(self, task):
         def _insert(node, task):
             if not node:
-                return TaskNode(task)#creates a new node
-            if task.priority < node.task.priority:
-                node.left = _insert(node.left, task)#moves to  the left if the task is of lower priority than  the node.task
+                return TaskNode(task)
+            if task['priority'] < node.task['priority']:
+                node.left = _insert(node.left, task)
             else:
-                node.right = _insert(node.right, task)#moves right instead
+                node.right = _insert(node.right, task)
             return node
         self.root = _insert(self.root, task)
 
@@ -34,11 +33,10 @@ class BST:#handles traversal, insertion and search
         def _search(node, priority):
             if not node:
                 return None
-            if node.task.priority == priority:#sets the root node as the priority
+            if node.task['priority'] == priority:
                 return node.task
-            elif priority < node.task.priority:
+            elif priority < node.task['priority']:
                 return _search(node.left, priority)
             else:
                 return _search(node.right, priority)
         return _search(self.root, priority)
-  
