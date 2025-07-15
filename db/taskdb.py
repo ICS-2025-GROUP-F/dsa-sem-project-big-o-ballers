@@ -18,7 +18,7 @@ class TaskDatabase:
         )""")
         self.conn.commit()
 
-    def insert_task(self, task):
+    def add_task(self, task):
         """task = dict with title, desc, etc."""
         self.conn.execute("""
         INSERT INTO tasks (title, description, priority, status, due_date)
