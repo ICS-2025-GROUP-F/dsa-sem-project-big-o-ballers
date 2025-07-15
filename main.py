@@ -99,7 +99,7 @@ class TaskManagerApp:
         popup = tk.Toplevel(self.root)
         popup.title("Add Task")
 
-        labels = ["Title", "Description", "Priority", "Status", "Due Date (YYYY-MM-DD)"]
+        labels = ["Title", "Priority", "Due Date (YYYY-MM-DD)"]
         entries = {}
 
         for i, label in enumerate(labels):
@@ -110,9 +110,9 @@ class TaskManagerApp:
         def save():
             task = {
                 'title': entries["Title"].get(),
-                'description': entries["Description"].get(),
+                'description': "",
                 'priority': int(entries["Priority"].get()),
-                'status': entries["Status"].get(),
+                'status': "To Do",
                 'due_date': entries["Due Date (YYYY-MM-DD)"].get()
             }
             self.db.add_task(task)
